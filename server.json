@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.atushi1841/japan-ec-mcp",
+  "description": "Japanese e-commerce search MCP for AI agents. Search Mercari, Yahoo Auctions, Suruga-ya.",
+  "repository": {
+    "url": "https://github.com/atushi1841/japan-ec-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "title": "Japan E-Commerce & Secondary Market Search MCP",
+  "packages": [
+    {
+      "registryType": "mcpb",
+      "identifier": "https://github.com/atushi1841/japan-ec-mcp/releases/download/v0.1.0/server.mcpb",
+      "version": "0.1.0",
+      "fileSha256": "6814b95fee9515c7eb104a25fb968be5acb03689a9c891200bb2998590700efb",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}

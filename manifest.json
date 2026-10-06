@@ -1,0 +1,97 @@
+{
+  "manifest_version": "0.4",
+  "name": "japan-ec-mcp",
+  "display_name": "Japan E-Commerce & Secondary Market Search MCP",
+  "version": "0.1.0",
+  "description": "Japanese e-commerce and secondary marketplace search for AI agents. Search Mercari, Yahoo Auctions, Suruga-ya, and get resale/arbitrage guidance for TCG, camera, luxury, and figure categories.",
+  "long_description": "Japan E-Commerce & Secondary Market Search MCP です。\n\nAIエージェント（Claude, Cursor, ChatGPT等）から日本国内の中古・auction市場を検索できます。\n\n## 提供ツール\n\n| ツール | 内容 |\n|---|---|\n| `search_japan_marketplace(keyword, platform, limit)` | メルカリ・ヤフオク・駿河屋の出品中検索URLを返す（生URL経由で最新価格確認可） |\n| `get_japan_resale_guidance(category)` | TCG / camera / luxury / figure の転売益見込み・調達先・評価指標を返す |\n\n## 動作要件\n\n- 完全ローカル実行（APIキー不要・ネットワーク不要）\n- 依存解決に [uv](https://docs.astral.sh/uv/) を使用（`uv run` 経由で起動、Python 3.10以上）\n- 関連 Apify Actors: fruitful_quintessence/mercari-japan-search-scraper, yahoo-auctions-japan-scraper, surugaya-japan-hobby-prices",
+  "author": {
+    "name": "atushi1841",
+    "url": "https://github.com/atushi1841"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atushi1841/japan-ec-mcp"
+  },
+  "homepage": "https://github.com/atushi1841/japan-ec-mcp",
+  "server": {
+    "type": "python",
+    "entry_point": "src/stdio_main.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "${__dirname}",
+        "src/stdio_main.py"
+      ]
+    }
+  },
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "linux",
+      "win32"
+    ],
+    "runtimes": {
+      "python": ">=3.10"
+    }
+  },
+  "keywords": [
+    "japan",
+    "e-commerce",
+    "mercari",
+    "yahoo-auctions",
+    "surugaya",
+    "secondary-market",
+    "arbitrage",
+    "resale",
+    "mcp"
+  ],
+  "tools": [
+    {
+      "name": "search_japan_marketplace",
+      "description": "Search Japanese secondary marketplace listings (Mercari, Yahoo Auctions, Suruga-ya) and return active live search URLs with pricing context. Use when an AI agent needs current Japanese used-market pricing for a product before purchasing or reselling.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "keyword": {
+            "type": "string",
+            "description": "Product name or search term in Japanese or English (e.g. \"Pokemon Card 151\", \"PlayStation 5\", \"Switch\")."
+          },
+          "platform": {
+            "default": "all",
+            "type": "string",
+            "description": "Target platform: \"mercari\", \"yahoo\", \"surugaya\", or \"all\"."
+          },
+          "limit": {
+            "default": 10,
+            "type": "integer",
+            "description": "Max results per platform (default 10)."
+          }
+        },
+        "required": [
+          "keyword"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_japan_resale_guidance",
+      "description": "Get arbitrage, sourcing, and resale platform guidance for specific Japanese goods categories. Returns recommended marketplaces, price-reference sources, and condition metrics.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Product category: \"tcg\" (Pokemon/Yu-Gi-Oh), \"camera\", \"luxury\", \"figure\", \"watch\", or \"car\"."
+          }
+        },
+        "required": [
+          "category"
+        ],
+        "type": "object"
+      }
+    }
+  ]
+}
