@@ -177,3 +177,17 @@ Smithery 登録は API で自動実行不可のためユーザー手動操作待
 ## License
 
 MIT License. See [Kensho](https://github.com/atushi1841/kensho) project for the full stack.
+
+## Install via Smithery
+
+Connect this MCP server to your AI client (Claude Desktop, Cursor, VS Code) in one command:
+
+```bash
+npx @smithery/cli install atushi1841/japan-ec-mcp --client claude
+```
+
+Replace `claude` with `cursor`, `vscode`, or `cline` for other clients.
+
+Alternatively, install directly from the [Smithery registry](https://smithery.ai/server/atushi1841/japan-ec-mcp).
+
+> **Note:** Smithery server listing is pending verification. Once verified, this server will appear in search results with useCount tracking.
