@@ -191,3 +191,13 @@ Replace `claude` with `cursor`, `vscode`, or `cline` for other clients.
 Alternatively, install directly from the [Smithery registry](https://smithery.ai/server/atushi1841/japan-ec-mcp).
 
 > **Note:** Smithery server listing is pending verification. Once verified, this server will appear in search results with useCount tracking.
+
+
+## MCP公式レジストリ登録済み
+
+本サーバーは MCP 公式レジストリに `io.github.atushi1841/japan-anime-figure-mcp` として登録済み（status: active）です。
+
+```bash
+# レジストリでの登録確認
+curl -s "https://registry.modelcontextprotocol.io/v0.1/servers?search=atushi1841" | grep -o "\"io.github.atushi1841/japan-anime-figure-mcp\""
+```
