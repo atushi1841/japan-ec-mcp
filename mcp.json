@@ -1,0 +1,12 @@
+{
+  "name": "io.github.atushi1841/japan-ec-mcp",
+  "description": "MCP server for Japanese E-Commerce & Secondary Market Search",
+  "url": "https://github.com/atushi1841/japan-ec-mcp",
+  "author": "atushi1841",
+  "version": "0.1.0",
+  "modelcontextprotocol": {
+    "schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+    "transport": "stdio",
+    "server_json": "https://raw.githubusercontent.com/atushi1841/japan-ec-mcp/main/server.json"
+  }
+}
