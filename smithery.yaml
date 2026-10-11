@@ -1,0 +1,15 @@
+# Smithery.ai configuration for japan-ec-mcp MCP
+description: "Japanese E-Commerce & Secondary Market Search MCP — Mercari, Yahoo Auctions, Suruga-ya via Apify."
+repositoryUrl: https://github.com/atushi1841/japan-ec-mcp
+iconUrl: https://raw.githubusercontent.com/atushi1841/japan-ec-mcp/main/icon.png
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties: {}
+  commandFunction: |
+    (config) => ({
+      command: 'python',
+      args: ['${__dirname}/server.py']
+    })
+exampleConfig: {}
