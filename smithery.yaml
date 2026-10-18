@@ -1,5 +1,5 @@
 # Smithery.ai configuration for japan-ec-mcp MCP
-description: "Japanese E-Commerce & Secondary Market Search MCP — Mercari, Yahoo Auctions, Suruga-ya via Apify."
+description: "Japanese E-Commerce & Secondary Market Search MCP — Mercari, Yahoo Auctions, Suruga-ya via Apify. Apify Store: https://apify.com/fruitful_quintessence/acts/whSePszWpMtfeLYBp"
 repositoryUrl: https://github.com/atushi1841/japan-ec-mcp
 iconUrl: https://raw.githubusercontent.com/atushi1841/japan-ec-mcp/main/icon.png
 startCommand:
