@@ -2,8 +2,8 @@
   "manifest_version": "0.4",
   "name": "japan-ec-mcp",
   "display_name": "Japan E-Commerce & Secondary Market Search MCP",
-  "version": "0.1.0",
-  "description": "Japanese e-commerce and secondary marketplace search for AI agents. Search Mercari, Yahoo Auctions, Suruga-ya, and get resale/arbitrage guidance for TCG, camera, luxury, and figure categories.",
+  "version": "0.1.2",
+  "description": "Japanese e-commerce and secondary marketplace search for AI agents. Search Mercari, Yahoo Auctions, Suruga-ya. Related Apify Actor: https://apify.com/fruitful_quintessence/acts/whSePszWpMtfeLYBp",
   "long_description": "Japan E-Commerce & Secondary Market Search MCP です。\n\nAIエージェント（Claude, Cursor, ChatGPT等）から日本国内の中古・auction市場を検索できます。\n\n## 提供ツール\n\n| ツール | 内容 |\n|---|---|\n| `search_japan_marketplace(keyword, platform, limit)` | メルカリ・ヤフオク・駿河屋の出品中検索URLを返す（生URL経由で最新価格確認可） |\n| `get_japan_resale_guidance(category)` | TCG / camera / luxury / figure の転売益見込み・調達先・評価指標を返す |\n\n## 動作要件\n\n- 完全ローカル実行（APIキー不要・ネットワーク不要）\n- 依存解決に [uv](https://docs.astral.sh/uv/) を使用（`uv run` 経由で起動、Python 3.10以上）\n- 関連 Apify Actors: fruitful_quintessence/mercari-japan-search-scraper, yahoo-auctions-japan-scraper, surugaya-japan-hobby-prices",
   "author": {
     "name": "atushi1841",
