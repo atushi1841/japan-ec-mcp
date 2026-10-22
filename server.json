@@ -1,12 +1,12 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.atushi1841/japan-ec-mcp",
-  "description": "Japan EC MCP via Apify. Store: https://apify.",
+  "description": "Japan EC MCP via Apify. Store: ht\n\n- **Apify Store**: https://apify.com/fruitful_quintessence\n- **Gumroad**: https://atushi5.gumroad.com/l/kutuxe",
   "repository": {
     "url": "https://github.com/atushi1841/japan-ec-mcp",
     "source": "github"
   },
-  "version": "0.1.3",
+  "version": "0.1.4",
   "title": "Japan E-Commerce & Secondary Market Search MCP",
   "packages": [
     {
