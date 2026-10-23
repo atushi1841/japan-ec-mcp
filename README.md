@@ -1,13 +1,13 @@
-# japan-ec-mcp
-
-**Japanese E-Commerce & Secondary Market Search — MCP server**
+# 日本EC-MCP (japan-ec-mcp)
+![Smithery](https://smithery.io/badge/atushi1841/japan_ec_mcp)\n
+**Japanese E-Commerce & Secondary Market Search：MCP server**
 
 Claude / Cursor / VS Code などの AI クライアントから、日本の主要マーケットプレース（メルカリ、ヤフオク、駿河屋、楽天、価格.com）の価格・在庫・動向を直接問い合わせる Model Context Protocol (MCP) サーバーです。
 
 - 作者: atushi1841
 - ライセンス: MIT
 - MCP 規格: FastMCP 2.x（stdio / HTTP 両対応）
-- 関連プロジェクト: [Kensho](https://github.com/atushi1841/kensho) — X（Twitter）懸賞自動化
+- 関連プロジェクト: [Kensho](https://github.com/atushi1841/kensho)：データ収集・分析基盤
 
 ---
 
@@ -18,7 +18,7 @@ Claude / Cursor / VS Code などの AI クライアントから、日本の主�
 | `search_japan_marketplace` | キーワードで商品価格・在庫を横断検索 | Mercari, Yahoo Auctions, Suruga-ya |
 | `get_japan_resale_guidance` | 中古リセール市場の調達指針（TCG / カメラ / 高級時計 / 高級ブランド / フィギュア） | 5カテゴリ |
 
-### Tool 1 — `search_japan_marketplace`
+### Tool 1：`search_japan_marketplace`
 
 ```python
 result = await mcp.call_tool(
@@ -30,7 +30,7 @@ result = await mcp.call_tool(
 - `platform`: `"mercari" | "yahoo" | "surugaya" | "all"`（default: `all`）
 - 戻り値: `{query, platforms_searched, results: [{platform, search_url, notes, recommended_actor}]}`
 
-### Tool 2 — `get_japan_resale_guidance`
+### Tool 2：`get_japan_resale_guidance`
 
 ```python
 result = await mcp.call_tool(
@@ -46,7 +46,7 @@ result = await mcp.call_tool(
 
 ## MCP 接続例
 
-### 1. 標準入出力（stdio）— Claude Desktop 等
+### 1. 標準入出力（stdio）：Claude Desktop 等
 
 `claude_desktop_config.json`:
 
@@ -89,11 +89,11 @@ Apify の **Webhook** node で `POST /mcp` に JSON-RPC を投げる構成で利
 
 ---
 
-## Related Apify Actors
+## 関連する Apify Actor
 
 この MCP サーバーは Apify Store の 86 Actors と連携し、**実際にデータを取りたい場面では該当する Actor を併用**することを想定しています。PPE（pay-per-event）課金・無料枠あり。
 
-### 主力 Marketplace Scrapers
+### 主力の Marketplace スクレイパー
 
 | Actor | 用途 | 価格 |
 |---|---|---|
@@ -103,7 +103,7 @@ Apify の **Webhook** node で `POST /mcp` に JSON-RPC を投げる構成で利
 | [japan-kakaku-price-search](https://apify.com/fruitful_quintessence/japan-kakaku-price-search) | 価格.com の家電・日用品価格比較 | PPE |
 | [rakuten-japan-mcp](https://apify.com/fruitful_quintessence/rakuten-japan-mcp) | 楽天市場の商品・価格データ | PPE |
 
-### 中古 / 専門店 Scrapers
+### 中古・専門店のスクレイパー
 
 | Actor | カテゴリ |
 |---|---|
@@ -115,13 +115,13 @@ Apify の **Webhook** node で `POST /mcp` に JSON-RPC を投げる構成で利
 
 ### Japan Market MCP 系列
 
-- [japan-market-mcp](https://apify.com/fruitful_quintessence/japan-market-mcp) — 総合マクロ経済・市場データ
-- [japan-anime-figure-price-data](https://apify.com/fruitful_quintessence/japan-anime-figure-price-data) — アニメフィギュア価格
-- [japan-anime-figure-demand-features](https://apify.com/fruitful_quintessence/japan-anime-figure-demand-features) — アニメフィギュア需要特徴量
+- [japan-market-mcp](https://apify.com/fruitful_quintessence/japan-market-mcp)、総合マクロ経済・市場データ
+- [japan-anime-figure-price-data](https://apify.com/fruitful_quintessence/japan-anime-figure-price-data)、アニメフィギュア価格
+- [japan-anime-figure-demand-features](https://apify.com/fruitful_quintessence/japan-anime-figure-demand-features)、アニメフィギュア需要特徴量
 
 ---
 
-## Quickstart
+## クイックスタート
 
 ```bash
 # 1. クローン
@@ -155,8 +155,7 @@ curl -s -X POST http://localhost:8000/mcp/tools/list \
 | レジストリ | 状態 | 備考 |
 |---|---|---|
 | MCP 公式レジストリ | ✅ 登録済み | `io.github.atushi1841/japan-ec-mcp` |
-| Smithery.ai | 📝 【要ユーザー対応】 未登録 | `mcp/kensho-*/smithery.yaml` テンプレあり（本サーバーはテンプレ未作成・要追加） |
-| mcp.so | 📝 【要ユーザー対応】 未登録 | YAML テンプレは Kensho 側に `mcp_so_configs/` 予定 |
+| Smithery.ai | ✅ 登録済み | `atushi1841/japan_ec_mcp` |\n| mcp.so | 📝 【要ユーザー対応】 未登録 | YAML テンプレは Kensho 側に `mcp_so_configs/` 予定 |
 
 **収益化経路**: GitHub README → Smithery（未登録）→ Apify Store（86 Actors・PPE課金）への流入。
 Smithery 登録は API で自動実行不可のためユーザー手動操作待ち（【要ユーザー対応】タグ継続）。
@@ -174,11 +173,11 @@ Smithery 登録は API で自動実行不可のためユーザー手動操作待
 
 ---
 
-## License
+## ライセンス
 
 MIT License. See [Kensho](https://github.com/atushi1841/kensho) project for the full stack.
 
-## Install via Smithery
+## Smithery 経由でインストール
 
 Connect this MCP server to your AI client (Claude Desktop, Cursor, VS Code) in one command:
 
