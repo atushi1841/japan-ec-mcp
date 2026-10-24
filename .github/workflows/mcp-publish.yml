@@ -42,6 +42,12 @@ jobs:
 
       - name: Publish server.json
         if: ${{ inputs.publish }}
+        # continue-on-error: Smithery connectionUrl (server.smithery.ai/<ns>/<name>) is
+        # generated asynchronously from the MCP Registry publish and is known to 404 for
+        # up to 24h after a successful registry publish (t_f9f681fa). The registry entry
+        # itself is what matters; a hard failure here would block the deprecate/status
+        # steps that follow and leave old versions un-deprecated.
+        continue-on-error: true
         run: mcp-publisher publish
 
       - name: Deprecate an old version
@@ -53,12 +59,12 @@ jobs:
 
       - name: Set version status (active/deprecated/deleted)
         if: ${{ inputs.status_version != '' && inputs.status_value != '' }}
-                run: |
+        run: |
           if [ "${{ inputs.status_value }}" = "active" ]; then
             mcp-publisher status --status active \
-              $(grep -oP '(?<="name": ")io\.github\.[^/"]+/[^/"]+(?=")' server.json 2>/dev/null || echo io.github.atushi1841/japan-ec-apify-mcp) ${{ inputs.status_version }}
+              io.github.atushi1841/japan-ec-mcp ${{ inputs.status_version }}
           else
             mcp-publisher status --status ${{ inputs.status_value }} \
               --message "旧版のため非公開化" \
-              $(grep -oP '(?<="name": ")io\.github\.[^/"]+/[^/"]+(?=")' server.json 2>/dev/null || echo io.github.atushi1841/japan-ec-apify-mcp) ${{ inputs.status_version }}
+              io.github.atushi1841/japan-ec-mcp ${{ inputs.status_version }}
           fi
