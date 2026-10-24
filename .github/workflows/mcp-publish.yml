@@ -53,7 +53,12 @@ jobs:
 
       - name: Set version status (active/deprecated/deleted)
         if: ${{ inputs.status_version != '' && inputs.status_value != '' }}
-        run: |
-          mcp-publisher status --status ${{ inputs.status_value }} \
-            --message "懸賞ツールを含む旧版のため非公開化" \
-            io.github.atushi1841/japan-ec-mcp ${{ inputs.status_version }}
+                run: |
+          if [ "${{ inputs.status_value }}" = "active" ]; then
+            mcp-publisher status --status active \
+              $(grep -oP '(?<="name": ")io\.github\.[^/"]+/[^/"]+(?=")' server.json 2>/dev/null || echo io.github.atushi1841/japan-ec-apify-mcp) ${{ inputs.status_version }}
+          else
+            mcp-publisher status --status ${{ inputs.status_value }} \
+              --message "旧版のため非公開化" \
+              $(grep -oP '(?<="name": ")io\.github\.[^/"]+/[^/"]+(?=")' server.json 2>/dev/null || echo io.github.atushi1841/japan-ec-apify-mcp) ${{ inputs.status_version }}
+          fi
